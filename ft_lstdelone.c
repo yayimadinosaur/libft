@@ -6,7 +6,7 @@
 /*   By: wfung <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/15 15:35:07 by wfung             #+#    #+#             */
-/*   Updated: 2016/12/15 21:19:11 by wfung            ###   ########.fr       */
+/*   Updated: 2016/12/16 16:22:06 by wfung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	ft_lstdelone(t_list **alst, void (*del)(void *, size_t))
 {
 	t_list	*current;
-	
+
 	current = *alst;
 	while (current != current->next)
 	{

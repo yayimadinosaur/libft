@@ -6,7 +6,7 @@
 #    By: wfung <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/28 10:11:15 by wfung             #+#    #+#              #
-#    Updated: 2016/12/12 19:07:38 by wfung            ###   ########.fr        #
+#    Updated: 2016/12/16 19:21:16 by wfung            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -48,10 +48,11 @@ INCL = ./libft.h
 
 all: $(NAME)
 
-$(NAME):
-	gcc $(CFLAGS) $(SRC) -I $(INCL)
+$(NAME): $(OBJS)
 	ar rc $(NAME) $(OBJS)
 	ranlib $(NAME)
+$(OBJS): $(SRC)
+	gcc $(CFLAGS) -I $(INCL) -c $(SRC)
 
 clean:
 	/bin/rm -f $(OBJS)

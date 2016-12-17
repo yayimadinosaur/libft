@@ -6,13 +6,13 @@
 /*   By: wfung <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/29 16:51:47 by wfung             #+#    #+#             */
-/*   Updated: 2016/12/13 20:49:00 by wfung            ###   ########.fr       */
+/*   Updated: 2016/12/16 16:21:35 by wfung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_len_int(int nb)
+static int	ft_len_int(int nb)
 {
 	int len_int;
 
@@ -35,7 +35,7 @@ int		ft_len_int(int nb)
 	return (len_int);
 }
 
-char	*ft_strrev_w_neg(char *str)
+static char	*ft_strrev_w_neg(char *str)
 {
 	int		i;
 	int		j;
@@ -59,7 +59,7 @@ char	*ft_strrev_w_neg(char *str)
 	return (str);
 }
 
-char	*ft_itoa(int n)
+char		*ft_itoa(int n)
 {
 	int		i;
 	char	*buff;

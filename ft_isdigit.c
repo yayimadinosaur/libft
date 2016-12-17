@@ -6,7 +6,7 @@
 /*   By: wfung <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/03 18:10:58 by wfung             #+#    #+#             */
-/*   Updated: 2016/12/03 18:14:09 by wfung            ###   ########.fr       */
+/*   Updated: 2016/12/16 20:48:39 by wfung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,10 @@
 
 int		ft_isdigit(int c)
 {
-	if (c >= 48 && c <= 57)
-		return (c);
+	if (c < 0 || c > 9)
+		return (0);
+	else if ((unsigned char)c >= 48 && (unsigned char)c <= 57)
+		return ((int)c);
 	else
 		return (0);
 }
