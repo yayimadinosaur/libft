@@ -6,7 +6,7 @@
 /*   By: wfung <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/28 14:55:44 by wfung             #+#    #+#             */
-/*   Updated: 2016/12/18 18:25:33 by wfung            ###   ########.fr       */
+/*   Updated: 2016/12/18 20:23:05 by wfung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 	i = 0;
 	dst_buff = (char*)dst;
 	src_buff = (char*)src;
-	while (src_buff != '\0' && i < len)
+	while (i < len)
 	{
 		dst_buff[i] = src_buff[i];
 		i++;
