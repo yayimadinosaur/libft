@@ -6,7 +6,7 @@
 /*   By: wfung <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/28 14:48:50 by wfung             #+#    #+#             */
-/*   Updated: 2016/12/15 16:54:33 by wfung            ###   ########.fr       */
+/*   Updated: 2016/12/18 18:15:58 by wfung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	*ft_memcpy(void *dst, const void *src, size_t n)
 	i = 0;
 	dst_buff = dst;
 	src_buff = (char*)src;
-	while (src_buff != '\0' && i < n)
+	while (src_buff[i] != '\0' && i < n)
 	{
 		dst_buff[i] = src_buff[i];
 		i++;

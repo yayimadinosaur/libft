@@ -6,7 +6,7 @@
 /*   By: wfung <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/07 18:08:34 by wfung             #+#    #+#             */
-/*   Updated: 2016/12/16 17:14:05 by wfung            ###   ########.fr       */
+/*   Updated: 2016/12/18 16:57:28 by wfung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,13 @@
 
 void	ft_strdel(char **as)
 {
+	if (as == NULL)
+		return ;
+	if (*as == NULL)
+		return ;
 	if (*as)
 	{
-		free((void*)as);
+		free(*as);
 		*as = NULL;
 	}
 	return ;

@@ -1,38 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_isalpha.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wfung <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/28 15:05:19 by wfung             #+#    #+#             */
-/*   Updated: 2016/12/18 18:13:16 by wfung            ###   ########.fr       */
+/*   Created: 2016/12/03 18:06:34 by wfung             #+#    #+#             */
+/*   Updated: 2016/12/18 16:35:53 by wfung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strdup(const char *s1)
+int		ft_isalpha(int c)
 {
-	int		i;
-	int		j;
-	char	*buff;
-
-	i = 0;
-	j = ft_strlen(s1);
-	buff = (char*)malloc(sizeof(char) * (j + 1));
-	if (!buff)
-		return (NULL);
-	if (s1[i] == '\0')
+	if (c < 0 || c > 122)
 	{
-		buff[i] = '\0';
-		return (buff);
+		return (0);
 	}
-	while (i < j)
+	else if (c > 90 && c < 97)
 	{
-		buff[i] = s1[i];
-		i++;
+		return (0);
 	}
-	buff[i] = '\0';
-	return (buff);
+	else if ((unsigned char)c >= 65 && (unsigned char)c <= 90)
+	{
+		return (1);
+	}
+	else if ((unsigned char)c >= 97 && (unsigned char)c <= 122)i
+	{
+		return (1);
+	}
+	else
+	{
+		return (0);
+	}
 }

@@ -6,17 +6,17 @@
 /*   By: wfung <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/06 18:55:56 by wfung             #+#    #+#             */
-/*   Updated: 2016/12/13 20:44:40 by wfung            ###   ########.fr       */
+/*   Updated: 2016/12/18 17:55:32 by wfung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static char	**ft_tab_word_count(char const *s, char c)
+static char	**ft_array_word_count(char const *s, char c)
 {
 	int		i;
 	int		word_count;
-	char	**tab_count;
+	char	**array_count;
 
 	i = 0;
 	word_count = 0;
@@ -31,14 +31,14 @@ static char	**ft_tab_word_count(char const *s, char c)
 			word_count++;
 		}
 	}
-	tab_count = (char**)malloc(sizeof(char*) * (word_count + 1));
-	if (!tab_count)
+	array_count = (char**)malloc(sizeof(char*) * (word_count + 1));
+	if (!array_count)
 		return (NULL);
-	tab_count[word_count] = NULL;
-	return (tab_count);
+	array_count[word_count] = NULL;
+	return (array_count);
 }
 
-static char	**ft_tab_word(char **tab, char const *s, char c)
+static char	**ft_array_word(char **array, char const *s, char c)
 {
 	int		i;
 	int		start;
@@ -55,16 +55,16 @@ static char	**ft_tab_word(char **tab, char const *s, char c)
 			while (s[i] != c && s[i] != '\0')
 				i++;
 			end = i + 1;
-			tab[word_count] = (char*)malloc(sizeof(char) * (end - start));
-			if (!tab[word_count])
+			array[word_count] = (char*)malloc(sizeof(char) * (end - start));
+			if (!array[word_count])
 				return (NULL);
 			word_count++;
 		}
 		else if (s[i] == c)
 			i++;
 	}
-	tab[word_count] = NULL;
-	return (tab);
+	array[word_count] = NULL;
+	return (array);
 }
 
 char		**ft_strsplit(char const *s, char c)
@@ -72,23 +72,25 @@ char		**ft_strsplit(char const *s, char c)
 	int		i;
 	int		j;
 	int		word_count;
-	char	**buff_tab;
+	char	**buff_array;
 
 	i = 0;
 	word_count = 0;
-	buff_tab = ft_tab_word(ft_tab_word_count(s, c), s, c);
+	if (!s)
+		return (NULL);
+	buff_array = ft_array_word(ft_array_word_count(s, c), s, c);
 	while (s[i] != '\0')
 	{
 		if (s[i] != c)
 		{
 			j = 0;
 			while (s[i] != c && s[i] != '\0')
-				buff_tab[word_count][j++] = s[i++];
-			buff_tab[word_count][j] = '\0';
+				buff_array[word_count][j++] = s[i++];
+			buff_array[word_count][j] = '\0';
 			word_count++;
 		}
 		else if (s[i] == c)
 			i++;
 	}
-	return (buff_tab);
+	return (buff_array);
 }

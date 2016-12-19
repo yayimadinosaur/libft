@@ -6,7 +6,7 @@
 /*   By: wfung <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/07 17:41:50 by wfung             #+#    #+#             */
-/*   Updated: 2016/12/13 17:55:33 by wfung            ###   ########.fr       */
+/*   Updated: 2016/12/18 16:54:05 by wfung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ char	*ft_strnew(size_t size)
 	char	*buff;
 
 	i = 0;
-	buff = (char*)malloc(sizeof(char) * size);
+	buff = (char*)malloc(sizeof(char) * (size + 1));
 	if (!buff)
 		return (NULL);
 	while (i < size)

@@ -6,7 +6,7 @@
 /*   By: wfung <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/29 16:51:47 by wfung             #+#    #+#             */
-/*   Updated: 2016/12/16 16:21:35 by wfung            ###   ########.fr       */
+/*   Updated: 2016/12/18 18:46:59 by wfung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,32 @@ static char	*ft_strrev_w_neg(char *str)
 	return (str);
 }
 
+static char *ft_store_putnbr(char *str, int n)
+{
+	int i;
+
+	i = 0;
+	if (n < 0)
+	{
+		str[i] = '-';
+		i++;
+		n = -n;
+	}
+	else if (n == 0)
+	{
+		str[i] = 48;
+		i++;
+	}
+	while (n > 0)
+	{
+		str[i] = (n % 10) + 48;
+		n = n / 10;
+		i++;
+	}
+	str[i] = '\0';
+	return (str);
+}
+
 char		*ft_itoa(int n)
 {
 	int		i;
@@ -66,24 +92,7 @@ char		*ft_itoa(int n)
 
 	i = 0;
 	buff = (char*)malloc(sizeof(char) * ft_len_int(n) + 1);
-	if (n < 0)
-	{
-		buff[i] = '-';
-		i++;
-		n = -n;
-	}
-	else if (n == 0)
-	{
-		buff[i] = 48;
-		i++;
-	}
-	while (n > 0)
-	{
-		buff[i] = (n % 10) + 48;
-		n = n / 10;
-		i++;
-	}
-	buff[i] = '\0';
-	ft_strrev_w_neg(buff);
-	return (buff);
+	if (!buff)
+		return (NULL);
+	return (ft_strrev_w_neg(ft_store_putnbr(buff, n)));
 }
