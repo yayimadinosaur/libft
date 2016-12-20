@@ -6,7 +6,7 @@
 /*   By: wfung <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/06 18:55:56 by wfung             #+#    #+#             */
-/*   Updated: 2016/12/19 13:47:44 by wfung            ###   ########.fr       */
+/*   Updated: 2016/12/19 20:27:02 by wfung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,18 @@ static char	**ft_array_word(char **array, char const *s, char c)
 	return (array);
 }
 
+static int	ft_null_protect_strsplit(char const *s, char c)
+{
+	if (!s)
+		return (0);
+	if (!ft_array_word_count(s, c))
+		return (0);
+	if (!ft_array_word(ft_array_word_count(s, c), s, c))
+		return (0);
+	else
+		return (1);
+}
+
 char		**ft_strsplit(char const *s, char c)
 {
 	int		i;
@@ -76,7 +88,7 @@ char		**ft_strsplit(char const *s, char c)
 
 	i = 0;
 	word_count = 0;
-	if (!s)
+	if (ft_null_protect_strsplit(s, c) == 0)
 		return (NULL);
 	buff_array = ft_array_word(ft_array_word_count(s, c), s, c);
 	while (s[i] != '\0')
