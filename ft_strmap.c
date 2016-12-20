@@ -6,7 +6,7 @@
 /*   By: wfung <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/11 13:33:10 by wfung             #+#    #+#             */
-/*   Updated: 2016/12/18 17:10:53 by wfung            ###   ########.fr       */
+/*   Updated: 2016/12/19 21:08:44 by wfung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ char	*ft_strmap(char const *s, char (*f)(char))
 	char	*new;
 
 	i = 0;
+	if (!s)
+		return (NULL);
 	new = ft_strdup(s);
 	if (!new)
 		return (NULL);
