@@ -6,35 +6,59 @@
 /*   By: wfung <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/06 17:45:44 by wfung             #+#    #+#             */
-/*   Updated: 2016/12/15 21:07:25 by wfung            ###   ########.fr       */
+/*   Updated: 2016/12/19 19:55:41 by wfung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strtrim(char const *s)
+static int	ft_strlen_nowhtspcs(char *s)
 {
 	int		i;
 	int		j;
-	char	*buff;
 
 	i = 0;
 	j = 0;
+	if (!s)
+		return (0);
 	while (s[i] == ' ' || s[i] == '\n' || s[i] == '\t')
-		i++;
+		   i++;
+	if (s[i] == '\0')
+			   return (0);
 	j = i;
 	while (s[i] != '\0')
 		i++;
-	while (s[i - 1] == ' ' || s[i - 1] == '\n' || s[i - 1] == '\t')
+	if (s[i] == '\0')
 		i--;
-	buff = (char*)malloc(sizeof(char) * i - j + 1);
+	while (s[i] == ' ' || s[i] == '\t' || s[i] == '\n')
+		i--;
+	j = i - j + 1;
+	return (j);
+}
+
+char		*ft_strtrim(char const *s)
+{
+	int		i;
+	int		j;
+	int		x;
+	char	*buff;
+
+	i = 0;
+	x = 0;
+	if (!s)
+		return (NULL);
+	j = ft_strlen_nowhtspcs((char*)s);
+	buff = (char*)malloc(sizeof(char) * (j + 1));
 	if (!buff)
 		return (NULL);
-	while (j < (i - j))
+	while (s[i] == ' ' || s[i] == '\n' || s[i] == '\t')
+		i++;
+	while (x < j)
 	{
-		buff[j] = s[j];
-		j++;
+		buff[x] = s[i];
+		x++;
+		i++;
 	}
-	buff[j] = '\0';
+	buff[x] = '\0';
 	return (buff);
 }
