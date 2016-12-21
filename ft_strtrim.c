@@ -6,7 +6,7 @@
 /*   By: wfung <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/06 17:45:44 by wfung             #+#    #+#             */
-/*   Updated: 2016/12/19 19:55:41 by wfung            ###   ########.fr       */
+/*   Updated: 2016/12/20 15:36:34 by wfung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,9 @@ static int	ft_strlen_nowhtspcs(char *s)
 	if (!s)
 		return (0);
 	while (s[i] == ' ' || s[i] == '\n' || s[i] == '\t')
-		   i++;
+		i++;
 	if (s[i] == '\0')
-			   return (0);
+		return (0);
 	j = i;
 	while (s[i] != '\0')
 		i++;

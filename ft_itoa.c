@@ -6,13 +6,13 @@
 /*   By: wfung <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/29 16:51:47 by wfung             #+#    #+#             */
-/*   Updated: 2016/12/19 21:07:13 by wfung            ###   ########.fr       */
+/*   Updated: 2016/12/20 16:13:12 by wfung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	ft_len_int(int nb)
+static int	ft_len_int(long nb)
 {
 	int len_int;
 
@@ -22,7 +22,7 @@ static int	ft_len_int(int nb)
 		len_int++;
 		nb = nb * -1;
 	}
-	else if (nb == 0)
+	if (nb == 0)
 		len_int++;
 	else
 	{
@@ -59,7 +59,7 @@ static char	*ft_strrev_w_neg(char *str)
 	return (str);
 }
 
-static char *ft_store_putnbr(char *str, int n)
+static char	*ft_store_putnbr(char *str, long n)
 {
 	int i;
 
@@ -87,12 +87,12 @@ static char *ft_store_putnbr(char *str, int n)
 
 char		*ft_itoa(int n)
 {
-	int		i;
+	long	temp;
 	char	*buff;
 
-	i = 0;
-	buff = (char*)malloc(sizeof(char) * ft_len_int(n) + 1);
+	temp = (long)n;
+	buff = (char*)malloc(sizeof(char) * ft_len_int(temp) + 1);
 	if (!buff)
 		return (NULL);
-	return (ft_strrev_w_neg(ft_store_putnbr(buff, n)));
+	return (ft_strrev_w_neg(ft_store_putnbr(buff, temp)));
 }

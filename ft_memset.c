@@ -6,7 +6,7 @@
 /*   By: wfung <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/28 14:39:12 by wfung             #+#    #+#             */
-/*   Updated: 2016/12/13 20:58:33 by wfung            ###   ########.fr       */
+/*   Updated: 2016/12/20 17:30:53 by wfung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@ void	*ft_memset(void *b, int c, size_t len)
 	char			*k;
 
 	i = 0;
-	k = b;
-	j = c;
+	k = (char*)b;
+	j = (unsigned char)c;
 	while (i < len)
 	{
 		k[i] = j;
