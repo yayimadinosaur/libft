@@ -6,7 +6,7 @@
 /*   By: wfung <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/15 15:57:49 by wfung             #+#    #+#             */
-/*   Updated: 2016/12/20 16:31:11 by wfung            ###   ########.fr       */
+/*   Updated: 2016/12/30 17:34:21 by wfung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,8 @@
 
 t_list	*ft_lstnew(void const *content, size_t content_size)
 {
-	t_list			*current;
-	unsigned char	*copy;
+	t_list	*current;
 
-	copy = (unsigned char*)content;
 	current = (t_list*)malloc(sizeof(t_list));
 	if (!current)
 		return (NULL);
@@ -26,6 +24,17 @@ t_list	*ft_lstnew(void const *content, size_t content_size)
 		current->content = NULL;
 		current->content_size = 0;
 	}
+	else
+	{
+		current->content = ft_memalloc(content_size);
+		if (current->content == NULL)
+		{
+			ft_memdel((void**)&current);
+			return (NULL);
+		}
+	current->content_size = content_size;
+	ft_memmove(current->content, content, content_size);
+	}
 	current->next = NULL;
-	return ((t_list*)ft_memmove(copy, current, content_size));
+	return (current);
 }
