@@ -6,12 +6,11 @@
 /*   By: wfung <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/28 20:23:27 by wfung             #+#    #+#             */
-/*   Updated: 2016/12/24 19:35:40 by wfung            ###   ########.fr       */
+/*   Updated: 2017/01/01 20:13:12 by wfung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
 char	*ft_strnstr(const char *big, const char *little, size_t len)
 {

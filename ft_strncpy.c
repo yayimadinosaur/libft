@@ -6,7 +6,7 @@
 /*   By: wfung <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/28 13:54:36 by wfung             #+#    #+#             */
-/*   Updated: 2016/12/21 13:46:09 by wfung            ###   ########.fr       */
+/*   Updated: 2017/01/01 19:53:49 by wfung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ char	*ft_strncpy(char *dst, const char *src, size_t len)
 	size_t	i;
 
 	i = 0;
-	x = (size_t)ft_strlen(src);
+	x = ft_strlen(src);
 	if (x < len)
 	{
 		while (i < x && len--)

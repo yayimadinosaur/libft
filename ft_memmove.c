@@ -6,7 +6,7 @@
 /*   By: wfung <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/28 14:55:44 by wfung             #+#    #+#             */
-/*   Updated: 2016/12/24 17:32:30 by wfung            ###   ########.fr       */
+/*   Updated: 2017/01/01 19:46:07 by wfung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,5 +33,5 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 		while (len--)
 			*dst_buf-- = *src_buf--;
 	}
-	return (dst);
+	return ((void*)dst);
 }

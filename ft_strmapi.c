@@ -6,7 +6,7 @@
 /*   By: wfung <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/11 13:56:40 by wfung             #+#    #+#             */
-/*   Updated: 2016/12/19 21:09:52 by wfung            ###   ########.fr       */
+/*   Updated: 2017/01/01 20:30:53 by wfung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	char			*new;
 
 	i = 0;
-	if (!s)
+	if (!s || !f)
 		return (NULL);
 	new = ft_strdup(s);
 	if (!new)
