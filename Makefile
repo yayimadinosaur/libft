@@ -6,7 +6,7 @@
 #    By: wfung <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/28 10:11:15 by wfung             #+#    #+#              #
-#    Updated: 2016/12/16 19:21:16 by wfung            ###   ########.fr        #
+#    Updated: 2017/01/01 19:28:23 by wfung            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -51,6 +51,7 @@ all: $(NAME)
 $(NAME): $(OBJS)
 	ar rc $(NAME) $(OBJS)
 	ranlib $(NAME)
+
 $(OBJS): $(SRC)
 	gcc $(CFLAGS) -I $(INCL) -c $(SRC)
 

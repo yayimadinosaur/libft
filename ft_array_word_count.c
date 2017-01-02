@@ -1,30 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_array_word_count.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wfung <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/28 14:39:12 by wfung             #+#    #+#             */
-/*   Updated: 2017/01/01 19:33:56 by wfung            ###   ########.fr       */
+/*   Created: 2017/01/01 17:48:40 by wfung             #+#    #+#             */
+/*   Updated: 2017/01/01 17:51:26 by wfung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memset(void *b, int c, size_t len)
+char	**ft_array_word_count(char const *s, char c)
 {
-	size_t			i;
-	unsigned char	j;
-	char			*k;
+	int		i;
+	int		word_count;
+	char	*array_count;
 
 	i = 0;
-	k = (char*)b;
-	j = (unsigned char)c;
-	while (i < len)
+	word_count = 0;
+	while (s[i] != '\0')
 	{
-		k[i] = j;
-		i++;
+		if (s[i] == c)
+			i++;
+		else if (s[i] != c)
+		{
+			while (s[i] != c && s[i] != '\0')
+				i++;
+			word_count++;
+		}
 	}
-	return ((void*)k);
+	array_count = (char**)malloc(sizeof(char*) * (word_count + 1));
+	if (!array_count)
+		return (NULL);
+	array_count[word_count] = NULL;
+	return (array_count);
 }

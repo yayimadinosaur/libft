@@ -1,27 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_striteri.c                                      :+:      :+:    :+:   */
+/*   ft_array_word.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wfung <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/12/11 13:28:29 by wfung             #+#    #+#             */
-/*   Updated: 2016/12/20 19:20:54 by wfung            ###   ########.fr       */
+/*   Created: 2017/01/01 17:51:36 by wfung             #+#    #+#             */
+/*   Updated: 2017/01/01 17:57:08 by wfung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_striteri(char *s, void (*f)(unsigned int, char *))
+char	**ft_array_word(char **array, char const *s, char c)
 {
-	unsigned int i;
+	int		i;
+	int		start;
+	int		end;
+	int		word_count;
 
 	i = 0;
-	if (!s || !f)
-		return ;
+	word_count = 0;
 	while (s[i] != '\0')
 	{
-		f(i, &s[i]);
-		i++;
+		if (s[i] != c)
+		{
+			start = i;
+			while (s[i] != c && s[i] != '\0')
+				i++;
+			end = i + 1;
+			array[word_count] = (char*)malloc(sizeof(char) * (end - start));
+			if (!array[word_count])
+				return (NULL);
+			word_count++;
+		}
+		else if (s[i] == c)
+			i++;
 	}
+	array[word_count] = NULL;
+	return (array);
 }

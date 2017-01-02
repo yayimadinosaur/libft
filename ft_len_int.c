@@ -1,30 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_len_int.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wfung <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/28 14:39:12 by wfung             #+#    #+#             */
-/*   Updated: 2017/01/01 19:33:56 by wfung            ###   ########.fr       */
+/*   Created: 2017/01/01 17:36:15 by wfung             #+#    #+#             */
+/*   Updated: 2017/01/01 17:38:16 by wfung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memset(void *b, int c, size_t len)
+int		ft_len_int(long nb)
 {
-	size_t			i;
-	unsigned char	j;
-	char			*k;
+	int	lent_int;
 
-	i = 0;
-	k = (char*)b;
-	j = (unsigned char)c;
-	while (i < len)
+	len_int = 0;
+	if (nb < 0)
 	{
-		k[i] = j;
-		i++;
+		len_int++;
+		nb = nb * -1;
 	}
-	return ((void*)k);
+	if (nb == 0)
+	{
+		len_int++;
+	}
+	else
+	{
+		while (nb > 0)
+		{
+			len_int++;
+			nb = nb / 10;
+		}
+	}
+	return (len_int);
 }
