@@ -6,7 +6,7 @@
 /*   By: wfung <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/28 10:11:06 by wfung             #+#    #+#             */
-/*   Updated: 2016/12/16 16:43:16 by wfung            ###   ########.fr       */
+/*   Updated: 2017/01/03 12:41:44 by wfung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,4 +84,9 @@ void				ft_lstadd(t_list **alst, t_list *new);
 void				ft_lstiter(t_list *lst, void (*f)(t_list *elem));
 t_list				*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
 
+int					ft_count_nonws(char *str);
+int					ft_count_ws(char *str);
+size_t				ft_strcmp_len(char *s1, char *s2);
+size_t				ft_lst_count(t_list *lst);
+char				*ft_strtrim_nows(char *str);
 #endif

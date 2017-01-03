@@ -6,7 +6,7 @@
 #    By: wfung <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/28 10:11:15 by wfung             #+#    #+#              #
-#    Updated: 2017/01/01 19:28:23 by wfung            ###   ########.fr        #
+#    Updated: 2017/01/03 13:06:52 by wfung            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,8 @@ SRC =	./ft_memset.c ./ft_bzero.c ./ft_memcpy.c ./ft_memccpy.c ./ft_memmove.c\
 		./ft_itoa.c ./ft_putchar.c ./ft_putstr.c ./ft_putendl.c ./ft_putnbr.c\
 		./ft_putchar_fd.c ./ft_putstr_fd.c ./ft_putendl_fd.c ./ft_putnbr_fd.c\
 		./ft_lstnew.c ./ft_lstdelone.c ./ft_lstdel.c ./ft_lstadd.c\
-		./ft_lstiter.c ./ft_lstmap.c
+		./ft_lstiter.c ./ft_lstmap.c ./ft_count_nonws.c ./ft_count_ws.c\
+		./ft_strcmp_len.c ./ft_lst_count.c ./ft_strtrim_nows.c
 
 OBJS = ./ft_memset.o ./ft_bzero.o ./ft_memcpy.o ./ft_memccpy.o ./ft_memmove.o\
 	   ./ft_memchr.o ./ft_memcmp.o ./ft_strlen.o ./ft_strdup.o ./ft_strcpy.o\
@@ -42,7 +43,8 @@ OBJS = ./ft_memset.o ./ft_bzero.o ./ft_memcpy.o ./ft_memccpy.o ./ft_memmove.o\
 	   ./ft_itoa.o ./ft_putchar.o ./ft_putstr.o ./ft_putendl.o ./ft_putnbr.o\
 	   ./ft_putchar_fd.o ./ft_putstr_fd.o ./ft_putendl_fd.o ./ft_putnbr_fd.o\
 	   ./ft_lstnew.o ./ft_lstdelone.o ./ft_lstdel.o ./ft_lstadd.o\
-	   ./ft_lstiter.o ./ft_lstmap.o
+	   ./ft_lstiter.o ./ft_lstmap.o ./ft_count_nonws.o ./ft_count_ws.o\
+	   ./ft_strcmp_len.o ./ft_lst_count.o ft_strtrim_nows.o
 
 INCL = ./libft.h
 
