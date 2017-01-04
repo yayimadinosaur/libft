@@ -6,7 +6,7 @@
 /*   By: wfung <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/03 12:39:09 by wfung             #+#    #+#             */
-/*   Updated: 2017/01/03 12:53:25 by wfung            ###   ########.fr       */
+/*   Updated: 2017/01/03 19:59:55 by wfung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,14 @@ char	*ft_strtrim_nows(char *str)
 	char	*buff;
 
 	i = 0;
-	j = 0;
 	if (!str)
 		return (NULL);
 	j = ft_count_nonws(str);
-	buff = (char*)malloc(sizeof(char) * (j + 1));
-	if (!buff)
+	if (!(buff = (char*)malloc(sizeof(char) * (j + 1))))
+	{
+		free(&buff);
 		return (NULL);
+	}
 	j = 0;
 	while (str[i] != '\0')
 	{
