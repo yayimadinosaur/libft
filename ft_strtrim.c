@@ -6,7 +6,7 @@
 /*   By: wfung <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/06 17:45:44 by wfung             #+#    #+#             */
-/*   Updated: 2016/12/20 15:36:34 by wfung            ###   ########.fr       */
+/*   Updated: 2017/01/03 20:41:02 by wfung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,10 @@ char		*ft_strtrim(char const *s)
 	j = ft_strlen_nowhtspcs((char*)s);
 	buff = (char*)malloc(sizeof(char) * (j + 1));
 	if (!buff)
+	{
+		free(buff);
 		return (NULL);
+	}
 	while (s[i] == ' ' || s[i] == '\n' || s[i] == '\t')
 		i++;
 	while (x < j)

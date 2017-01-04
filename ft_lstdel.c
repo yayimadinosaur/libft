@@ -6,7 +6,7 @@
 /*   By: wfung <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/15 15:24:30 by wfung             #+#    #+#             */
-/*   Updated: 2016/12/30 16:43:14 by wfung            ###   ########.fr       */
+/*   Updated: 2017/01/03 20:03:05 by wfung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	ft_lstdel(t_list **alst, void (*del)(void *, size_t))
 {
 	t_list	*current;
 
-	if (!alst)
+	if (!*alst)
 		return ;
 	if (!alst)
 		return ;

@@ -6,11 +6,25 @@
 /*   By: wfung <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/06 18:55:56 by wfung             #+#    #+#             */
-/*   Updated: 2016/12/19 20:27:02 by wfung            ###   ########.fr       */
+/*   Updated: 2017/01/03 20:37:16 by wfung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+static char **ft_safe_exit(char **array, int wc)
+{
+	int	i;
+
+	i = 0;
+	while (i < wc)
+	{
+		free(array[i]);
+		i++;
+	}
+	free(array);
+	return (NULL);
+}
 
 static char	**ft_array_word_count(char const *s, char c)
 {
@@ -43,10 +57,10 @@ static char	**ft_array_word(char **array, char const *s, char c)
 	int		i;
 	int		start;
 	int		end;
-	int		word_count;
+	int		wc;
 
 	i = 0;
-	word_count = 0;
+	wc = 0;
 	while (s[i] != '\0')
 	{
 		if (s[i] != c)
@@ -55,15 +69,14 @@ static char	**ft_array_word(char **array, char const *s, char c)
 			while (s[i] != c && s[i] != '\0')
 				i++;
 			end = i + 1;
-			array[word_count] = (char*)malloc(sizeof(char) * (end - start));
-			if (!array[word_count])
-				return (NULL);
-			word_count++;
+			if (!(array[wc] = (char*)malloc(sizeof(char) * (end - start))))
+				return (ft_safe_exit(array, wc));
+			wc++;
 		}
 		else if (s[i] == c)
 			i++;
 	}
-	array[word_count] = NULL;
+	array[wc] = NULL;
 	return (array);
 }
 
