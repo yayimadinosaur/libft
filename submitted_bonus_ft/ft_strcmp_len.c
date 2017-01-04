@@ -6,7 +6,7 @@
 /*   By: wfung <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/02 17:49:29 by wfung             #+#    #+#             */
-/*   Updated: 2017/01/02 17:57:12 by wfung            ###   ########.fr       */
+/*   Updated: 2017/01/03 20:01:33 by wfung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,3 +26,6 @@ size_t	ft_strcmp_len(char *s1, char *s2)
 			return (0);
 	}
 }
+
+
+// change returns because returning the difference in len is kinda useless
